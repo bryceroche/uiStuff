@@ -1,4 +1,12 @@
-﻿@font-face {
+﻿/*
+MAIN COLOR: rgb(0,112,60)
+SECONDARY COLOR: 
+page background color: white
+    
+HIGHLIGHT COLOR: RGB(247, 143, 42)    
+*/
+
+@font-face {
     font-family: 'FontAwesome';
     src: url('fonts/fontawesome-webfont.eot?v=4.7.0');
     src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
@@ -56,20 +64,21 @@
     border-radius: 5px;
     outline: none;
     font-size: 1.2em;
-    background: #27ae60;
+    background: #73C573;
     color: white;
     padding-bottom: 4px;
     padding-top: 4px;
 }
 
     .pool-node:hover {
-        background-color: #2ecc71;
+        background-color: rgb(0,112,60); /*main color*/
     }
 
     .pool-node:active {
         background-color: #2ecc71;
         transform: translateY(4px);
     }
+
 
 .interview-sch-node {
     width: 90%;
@@ -78,7 +87,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     text-align: left;
-    border-bottom: solid #bcdefa 2px;
+    border-bottom: solid #d8f7d8 2px;
     content: '>';
     margin-top: 5px;
 }
@@ -87,14 +96,20 @@
         border-bottom: solid #FFB034 2px;
     }
 
+
 .ckable {
     transition: all .2s linear;
     cursor: pointer;
 }
 
     .ckable:hover {
-        background-color: none;
+        color: #FFB034;
     }
+
+.cked {
+    color: #FFB034;
+    outline:1px solid #FFB034;
+}
 
 .ckablef {
     transition: all .2s linear;
@@ -102,7 +117,7 @@
 }
 
     .ckablef:hover {
-        color: rgb(61, 166, 247);
+        color: #73C573;
     }
 
 .smallForm {
@@ -120,33 +135,39 @@
 .bigWidget {
     font-family: FontAwesome;
     font-size: 36pt;
-    height: 50px;
+    color: #d8f7d8;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
+
 .centered {
-    width: 100%;
     text-align: center;
 }
 
 .cycle-weekly-calendar {
     position: relative;
-    float: none;
     height: 50px;
-    display: block;
-    margin: 1em;
-    color: white;
+    display: inline-block;
+    width: 50%;
 }
 
 .wvHeader {
     display: table-cell;
-    height: 30px;
+    height: auto;
+    margin-bottom: 1em;
+    color: #d8f7d8;
 }
 
 .wvCalBody {
     width: 100%;
     table-layout: fixed;
     display: table;
-    color: white;
+    color: #d8f7d8;
+    border-bottom: solid #d8f7d8 1pt;
 }
 
 .bucket-label {
@@ -156,8 +177,48 @@
     margin-right: 5%;
     margin-top: 10px;
     text-align: center;
+    color: #999998;
     font-size: 28px;
+    font-weight: 300;
     letter-spacing: 1px;
+}
+
+.field-toggler {
+    text-align:center;
+    width:30px;
+    height:30px;
+    display:inline-block;
+    margin:2px;
+    cursor:pointer;
+    box-shadow: 0px 0px 5px white;
+    position:relative;
+}
+
+    .field-toggler div {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        width:100%;
+    }
+
+.timenodes {
+    text-align:right;
+    width: 442px;
+}
+
+.ampmGradient {
+    background: -webkit-linear-gradient(left, rgba(255,193,37, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(255,193,37, .5),rgba(238,64,0,.5));
+    background: -o-linear-gradient(left, rgba(255,193,37, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(255,193,37, .5),rgba(238,64,0,.5));
+    background: -moz-linear-gradient(left, rgba(255,193,37, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(255,193,37, .5),rgba(238,64,0,.5));
+    background: linear-gradient(to right, rgba(255,193,37, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(106, 184, 243, .5),rgba(255,193,37, .5),rgba(238,64,0,.5));
+}
+
+.time-AM {
+    background-color:rgba(250, 183, 47, .5);
+}
+
+.time-PM {
+    background-color:rgba(39, 110, 177, .5)
 }
 
 /***********styling classes*******************/
@@ -171,14 +232,8 @@ hr {
 }
 
 .content-area-styling {
-    /*background-color:rgb(59,68,124);*/
-    background: #1981d6; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #1981d6 0%, #1e5799 100%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #1981d6 0%,#1e5799 100%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #1981d6 0%,#1e5799 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1981d6', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    font-family: open sans, sans-serif;
     color: #999998;
-    font-family: "Open Sans", sans-serif;
 }
 
 .int-info-container-styling {
@@ -194,6 +249,7 @@ hr {
     display: inline-block;
     margin-left: 3px;
     margin-right: 3px;
+    color: #414141;
 }
 
 .interview-card-styling {
@@ -204,12 +260,12 @@ hr {
     /*! font-weight: bold; */
     /*! font-size: 16pt; */
     text-align: left;
-    color: #999998;
+    color: #414141;
     box-shadow: 0 0 10px rgba(200, 201, 201, 0.5);
 }
 
 .interview-card-field-styling {
-    color: #1B6DBA;
+    color: #9E9E9E;
     text-align: left;
     font-size: .8em;
 }
@@ -223,14 +279,14 @@ hr {
 }
 
 .add-widget-styling {
-    font-size: 18pt;
+    font-size: 2em;
     font-family: FontAwesome;
     color: rgb(115,115,115);
     transition: all .2s linear;
 }
 
     .add-widget-styling:hover {
-        color: rgb(71,209,103);
+        color: #73C573;
     }
 
 .remove-widget-styling {
@@ -240,7 +296,7 @@ hr {
 }
 
     .remove-widget-styling:hover {
-        color: rgb(202,99,86);
+        color: #D1002F;
     }
 
 .accept-widget-styling {
@@ -295,7 +351,7 @@ hr {
 }
 
     .button-one-struct:hover {
-        background-color: #2ecc71;
+        background-color: #73C573;
     }
 
     .button-one-struct:active {
@@ -305,7 +361,7 @@ hr {
 
 .button-two-struct {
     border-radius: 4px;
-    background-color: #d35400;
+    background-color: #FFB03A;
     border: none;
     padding: 10px;
     width: 200px;
@@ -384,7 +440,7 @@ hr {
 }
 
     .weekly-view-cell-styling:hover {
-        background-color: rgb(61, 166, 247);
+        background-color: #FFB034;
         color: white;
     }
 
@@ -446,7 +502,6 @@ hr {
 }
 /*mark, next four classes have changes.*/
 .form-event-styling {
-    width: 690px;
     box-shadow: 0 0 1em #fff;
     border-radius: 6px;
 }
@@ -604,18 +659,15 @@ hr {
 
 html,
 body {
-    background: #1981d6; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #1981d6 0%, #1e5799 100%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #1981d6 0%,#1e5799 100%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #1981d6 0%,#1e5799 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1981d6', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    color: #444;
+    color: white;
     font-family: "Open Sans", sans-serif;
     height: 100%;
     margin: 0;
+    background-color: white; /*page background color*/
 }
 
 .content-area-struct {
+    background-color: white; /*page background color*/
 }
 
 .int-info-container-struct {
@@ -684,6 +736,15 @@ body {
     text-align: center;
 }
 
+.add-widget-wrapper {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    right: 0;
+    display: inline-block;
+    position: relative;
+}
+
 .add-widget-struct {
     text-align: center;
     cursor: pointer;
@@ -734,8 +795,7 @@ body {
 }
 
 .dashboard-date-browser-struct {
-    width: 70%;
-    margin: 0 auto;
+    width: 100%;
     height: 15%;
 }
 
@@ -750,15 +810,12 @@ body {
 
 .dashboard-sub-scheduling-struct {
     display: inline-block;
-    width: 40%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 50%;
     margin-top: 10px;
     height: 300px;
-    overflow: hidden;
-    background-color: white;
-    color: #414141;
-    box-shadow: 0 0 10px rgba(200, 201, 201, 0.5);
+    overflow: auto;
+    background-color: #044972;
+    color: white;
 }
 
 .weekly-view-cell-struct {
@@ -804,6 +861,7 @@ body {
 .cal-footer-row-struct {
     width: 100%;
     text-align: center;
+    margin-top: .4em;
     display: block;
 }
 
@@ -888,7 +946,7 @@ body {
     max-height: 150px;
     bottom: 0;
     left: 0;
-    background: radial-gradient(ellipse at center, #1981d6 0%,#1e5799 100%);
+    background: rgb(0,112,60); /*main color*/
     opacity: .85;
     transition: all 0.15s;
 }
@@ -907,6 +965,7 @@ body {
 .date-nodes-struct {
     width: 768px;
     margin: 0 auto;
+    padding-top: 1em;
 }
 
 .timeSelect-struct {
@@ -921,6 +980,7 @@ body {
     width: auto;
     max-width: 900px;
     margin: 14pt 20% 0pt 20%;
+    /*! height: 100%; */
     min-width: 65%;
 }
 
@@ -957,7 +1017,6 @@ body {
         margin-bottom: 10px;
         font-family: "Open Sans", sans-serif;
         display: block;
-        float: none;
         text-align: left;
         font-size: 1em;
     }
@@ -974,7 +1033,6 @@ body {
         margin-bottom: 4pt;
         font-family: "Open Sans", sans-serif;
         display: block;
-        float: none;
         text-align: left;
         width: auto !important;
     }
@@ -1005,7 +1063,6 @@ body {
         margin-bottom: 4pt;
         font-family: "Open Sans", sans-serif;
         display: block;
-        float: none;
         text-align: left;
         width: auto !important;
     }
@@ -1030,7 +1087,6 @@ body {
     border-bottom: 1px solid #ddd;
     border-radius: 0;
     background-color: white;
-    float: none;
     margin: 0;
 }
 
@@ -1041,6 +1097,7 @@ body {
     left: 0;
     display: inline-block;
     font-size: 2em;
+    display: none;
 }
 
 .logo-areaCompany-struct {
@@ -1051,7 +1108,7 @@ body {
     margin-right: 55%;
     position: absolute;
     top: 15px;
-    left: 14%;
+    left: 2.5em;
 }
 
 .add-user-container-struct {
@@ -1108,6 +1165,7 @@ body {
     min-height: 18em;
     min-width: 16em;
     vertical-align: top;
+    color: #414141;
 }
 
 .ui-user-node-header-struct {
@@ -1139,7 +1197,7 @@ body {
     display: block;
     width: 90%;
     text-align: center;
-    background-color: white;
+    background-color: #F9F9F9;
     margin: 0 auto;
     border-radius: 10pt;
     min-width: 1200px;
@@ -1184,17 +1242,12 @@ body {
     z-index: 11;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #1981d6;
-    background: -moz-radial-gradient(center, ellipse cover, #1981d6 0%, #1e5799 100%);
-    background: -webkit-radial-gradient(center, ellipse cover, #1981d6 0%,#1e5799 100%);
-    background: radial-gradient(ellipse at center, #1981d6 0%,#1e5799 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1981d6', endColorstr='#1e5799',GradientType=1 );
-    color: #999998;
     font-family: "Open Sans", sans-serif;
+    background-color: white; /*page background color*/
 }
 
     .modal-form-struct hr {
-        color: #e6e6e6;
+        color: #F9F9F9;
         border: none;
         width: 90%;
         background: #999998;
@@ -1202,7 +1255,7 @@ body {
         height: 2px;
         display: block;
         margin-top: 40px;
-        margin-bottom: -20px;
+        margin-bottom: 10px;
     }
 
 .ui-table-struct {

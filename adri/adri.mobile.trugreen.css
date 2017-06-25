@@ -1,10 +1,16 @@
-﻿
+﻿/*
+MAIN COLOR: rgb(0,112,60)
+SECONDARY COLOR: 
+
+    
+HIGHLIGHT COLOR: RGB(247, 143, 42)    
+*/
 
 
 .add-widget-styling {
     font-size: 2.4em;
     font-family: FontAwesome;
-    color: #00703C;
+    color: rgb(0,112,60); /*main color*/
     transition: all .2s linear;
 }
 
@@ -465,7 +471,7 @@
     height: 4em;
     bottom: 0;
     left: 0;
-    background: #00703C;
+    background: rgb(0,112,60); /*main color*/
     opacity: .80;
     transition: all 0.15s;
     overflow-y: auto;
@@ -832,7 +838,7 @@ body {
 }
 
     .pool-node:hover {
-        background-color: #00703C;
+        background-color: rgb(0,112,60); /*main color*/
     }
 
     .pool-node:active {

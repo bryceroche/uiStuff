@@ -10,6 +10,19 @@
 	<title>ADRI Recruiting Automation Service</title>
 </head>
 <body>
-	<div id="adri-ras-content" class="content-area-struct content-area-styling"></div>
+    <div id="adri-ras-content" class="content-area-struct content-area-styling">
+        <div id="interview-info-header-container" class="pageHeader">
+            <div id="interview-info-logo-container" class="companyLogo" onclick="adri.util.controls.reloadLocation()">&#xf06c</div>
+            <div id="interview-info-logoCo-container" class="clientLogo">
+                <img src="images/clientLogo.png" style="width:100%;height:100%;">
+            </div>
+            <div id="page-title" class="mainHTxt titleBox">Call Self-Scheduler</div>
+            <div class="welcomebox maintxt" id="welcome-box"></div>
+            <div id="interview-controls" class="pageControls">
+                <div class="medWidget ckablef" onclick="adri.user.info.launchEditForm();">&#xf2c3;</div>
+            </div>
+        </div>
+        <div id="dynamic-content-area" class="dynamicContent"></div>
+    </div>
 </body>
 </html> 
