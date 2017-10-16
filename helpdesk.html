@@ -1,9 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <script src="adri/jquery.js"></script>
-    <script src="config.js"></script>
-    <script src="adri/adri.ras.js"></script>
+    <script src="adri/adri.helpdesk.0.1.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" media="only screen and (max-width: 850px)" href="adri/adri.mobile.css" />
     <link rel="stylesheet" media="only screen and (min-width: 851px)" href="adri/adri.ras.css" />
@@ -19,17 +18,14 @@
             <div id="page-title" class="mainHTxt titleBox">Scheduling Dashboard</div>
             <div class="welcomebox maintxt" id="welcome-box"></div>
             <div id="interview-controls" class="pageControls">
+				<div class="medWidget ckablef" onclick="adri.proxy.openForm()">&#xf090;</div>
                 <div class="medWidget ckablef" onclick="adri.ui.dashboard.open()">&#xf00a;</div>
                 <div class="medWidget ckablef" onclick="adri.user.info.launchEditForm();">&#xf2c3;</div>
                 <div class="medWidget ckablef" onclick="adri.ui.settings.open()">&#xf085;</div>
-                <div id="rpts-widget" class="medWidget ckablef" onclick="">&#xf080;</div>
+                <div class="medWidget ckablef" onclick="">&#xf080;</div>
             </div>
         </div>
-        <div id="core-content" class="dynamicContent"></div>
+        <div id="dynamic-content-area" class="dynamicContent"></div>
     </div>
-    <script>
-    /*<![CDATA[*/window.zEmbed || function (e, t) { var n, o, d, i, s, a = [], r = document.createElement("iframe"); window.zEmbed = function () { a.push(arguments) }, window.zE = window.zE || window.zEmbed, r.src = "javascript:false", r.title = "", r.role = "presentation", (r.frameElement || r).style.cssText = "display: none", d = document.getElementsByTagName("script"), d = d[d.length - 1], d.parentNode.insertBefore(r, d), i = r.contentWindow, s = i.document; try { o = s } catch (e) { n = document.domain, r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);', o = s } o.open()._l = function () { var e = this.createElement("script"); n && (this.domain = n), e.id = "js-iframe-async", e.src = "https://assets.zendesk.com/embeddable_framework/main.js", this.t = +new Date, this.zendeskHost = "adri-sys.zendesk.com", this.zEQueue = a, this.body.appendChild(e) }, o.write('<body onload="document._l();">'), o.close() }();
-        /*]]>*/</script>
-    <!-- End of adri-sys Zendesk Widget script -->
 </body>
 </html> 

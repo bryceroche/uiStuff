@@ -11,24 +11,288 @@ window.constants = {
 		client: '',
         ui: ''
 	},
-	urls:{
-		getTimeSlots: appconfig.api.base + '/' + appconfig.api.stage + '/getTimeSlots',
-		addTimeSlot: appconfig.api.base + '/' + appconfig.api.stage + '/addTimeSlot',
-		getInterview: appconfig.api.base + '/' + appconfig.api.stage + '/GetInterviewDetails',
-		addInterview: appconfig.api.base + '/' + appconfig.api.stage + '/AddEvent',
-		validateUser: appconfig.api.base + '/' + appconfig.api.stage + '/validateUser',
-		getUsers: appconfig.api.base + '/' + appconfig.api.stage + '/getUsers',
-		deleteTimeSlot:appconfig.api.base + '/' + appconfig.api.stage + '/deleteTimeslot',
-		deleteUser:appconfig.api.base + '/' + appconfig.api.stage + '/deleteUser',
-		addUsers: appconfig.api.base + '/' + appconfig.api.stage + '/addUsers',
-		getUnscheduledInterviews: appconfig.api.base + '/' + appconfig.api.stage + '/getInterviews',
-		getInterviewsDate: appconfig.api.base + '/' + appconfig.api.stage + '/getInterviewsDate',
-		getPositions: appconfig.api.base + '/' + appconfig.api.stage + '/getPositions',
-		addPosition: appconfig.api.base + '/' + appconfig.api.stage + '/addPosition',
-		getUserTimeSlots: appconfig.api.base + '/' + appconfig.api.stage + '/getAvailabilityUser',
-		notifyUser: appconfig.api.base + '/' + appconfig.api.stage + '/NotifyUser',
-		persistentAvailability: appconfig.api.base + '/' + appconfig.api.stage + '/updatePersistentUserInfo',
-        optout: ''
+	urls: {
+	    getClientList: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/getClientList',
+	    searchUser: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/searchUser',
+		getTimeSlots: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/getTimeSlots',
+		addTimeSlot: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/addTimeSlot',
+		getInterview: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/GetInterviewDetails',
+		addInterview: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/AddEvent',
+		validateUser: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/validateUser',
+		getUsers: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/getUsers',
+		deleteTimeSlot:'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/deleteTimeslot',
+		deleteUser:'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/deleteUser',
+		addUsers: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/addUsers',
+		getUnscheduledInterviews: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/getInterviews',
+		getInterviewsDate: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/getInterviewsDate',
+		getPositions: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/getPositions',
+		addPosition: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/addPosition',
+		getUserTimeSlots: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/getAvailabilityUser',
+		notifyUser: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/NotifyUser',
+		persistentAvailability: 'https://4jja3nb0yf.execute-api.us-west-2.amazonaws.com/prod/updatePersistentUserInfo'
+	},
+	elements: {
+	    weeklyView: {
+            id:'db-weekly-view',
+	        structureClass: 'dashboard-date-browser-struct',
+	        stylingClass: 'dashboard-date-browser-styling'
+	    },
+	    weeklyViewCell: {
+	        structureClass: 'weekly-view-cell-struct',
+	        stylingClass: 'weekly-view-cell-styling'
+	    },
+	    schedulingArea: {
+            id:'db-scheduling',
+	        structureClass: 'dashboard-scheduling-struct',
+	        stylingClass: 'dashboard-scheduling-styling'
+	    },
+	    schedulingSubArea: {
+	        structureClass: 'dashboard-sub-scheduling-struct',
+	        stylingClass: 'dashboard-sub-scheduling-styling'
+	    },
+		mainHeaderArea:{
+			structureClass:'main-header-struct',
+			stylingClass:'main-header-styling'
+        },
+        monthHeader: {
+            structureClass: 'cal-monthHeader-struct',
+            stylingClass: 'cal-monthHeader-styling'
+        },
+		contentArea:{
+			id:'adri-ras-content',
+			structureClass:'content-area-struct',
+			stylingClass:'content-area-styling'
+		},
+		nodeArea:{
+			id:'adri-ras-timeNodes',
+			structureClass:'ui-node-area-struct',
+			stylingClass:'ui-node-area-styling'
+		},
+		interviewCard:{
+			structureClass:'interview-card-struct',
+			stylingClass:'interview-card-styling'
+		},
+		interviewCardField:{
+			structureClass:'interview-card-field-struct',
+			stylingClass:'interview-card-field-styling'
+		},
+		interviewCardText:{
+			structureClass:'interview-card-text-struct',
+			stylingClass:'interview-card-text-styling'
+		},
+		interviewCardRow:{
+			structureClass:'interview-card-row-struct',
+			stylingClass:'interview-card-row-styling'
+		},
+		interviewInfoContainer:{
+			structureClass:'int-info-container-struct',
+			stylingClass:'int-info-container-styling'
+		},
+		interviewControls:{
+			structureClass:'int-controls-struct',
+			stylingClass:'int-controls-styling'
+		},
+		interviewControlWidget:{
+			structureClass:'int-control-widget-struct',
+			stylingClass:'int-control-widget-styling'
+		},
+		calendar:{
+			id:'adri-ras-calendar-control',
+			structureClass:'cal-body-struct',
+			stylingClass:'cal-body-styling'
+		},
+		row:{
+			structureClass:'cal-row-struct',
+			stylingClass:'cal-row-styling'
+		},
+		header:{
+			structureClass:'cal-header-struct',
+			stylingClass:'cal-header-styling'
+		},
+		monthHeader: {
+		    structureClass: 'cal-monthHeader-struct',
+		    stylingClass: 'cal-monthHeader-styling'
+		},
+		headerRow:{
+			structureClass:'cal-header-row-struct',
+			stylingClass:'cal-header-row-styling'
+		},
+		footerRow:{
+			structureClass:'cal-footer-row-struct',
+			stylingClass:'cal-footer-row-styling'
+		},
+		title:{
+			structureClass:'cal-title-struct',
+			stylingClass:'cal-title-styling'
+        },
+        buttonOne: {
+            structureClass: 'button-one-struct',
+            stylingClass: 'button-one-styling',
+        },
+        buttonTwo: {
+            structureClass: 'button-two-struct',
+            stylingClass: 'button-two-styling',
+        },
+        cellDate: {
+            structureClass: 'cal-cell-date-struct',
+            stylingClass: 'cal-cell-date-styling'
+        },
+        cell: {
+            structureClass: 'cal-cell-struct',
+            stylingClass: 'cal-cell-styling'
+        },
+        uiTable: {
+            structureClass: 'ui-table-struct',
+            stylingClass: 'ui-table-styling'
+        },
+        uiRow: {
+            structureClass: 'ui-row-struct',
+            stylingClass: 'ui-row-styling'
+        },
+        uiCell: {
+            structureClass: 'ui-cell-struct',
+            stylingClass: 'ui-cell-styling'
+        },
+        uiHeaderCell: {
+            structureClass: 'ui-header-cell-struct',
+            stylingClass: 'ui-header-cell-styling'
+        },
+        uiHeaderRow: {
+            structureClass: 'ui-header-row-struct',
+            stylingClass: 'ui-header-row-styling'
+        },
+        button: {
+            structureClass: 'cal-button-struct',
+            stylingClass: 'cal-button-styling'
+        },
+        indicatorInvalid: {
+            structureClass: 'indicator-struct',
+            stylingClass: 'indicator-invalid-styling'
+        },
+        indicatorMissingInterviewers: {
+            structureClass: 'indicator-struct',
+            stylingClass: 'indicator-interviewer-styling'
+        },
+        indicatorMissingCandidates: {
+            structureClass: 'indicator-struct',
+            stylingClass: 'indicator-candidate-styling'
+        },
+        indicatorMissingRecruiters: {
+            structureClass: 'indicator-struct',
+            stylingClass: 'indicator-recruiter-styling'
+        },
+        indicatorFullyScheduled: {
+            structureClass: 'indicator-struct',
+            stylingClass: 'indicator-scheduled-styling'
+        },
+        submitButton: {
+            structureClass: 'submit-button-struct',
+            stylingClass: 'submit-button-styling'
+        },
+        inactiveCell: {
+            structureClass: 'cal-inactive-cell-struct',
+            stylingClass: 'cal-inactive-cell-styling'
+        },
+        timeNode: {
+            structureClass: 'time-node-struct',
+            stylingClass: 'time-node-styling'
+        },
+        dateNode: {
+            structureClass: 'date-node-struct',
+            stylingClass: 'date-node-styling'
+        },
+        dateNodeSingle: {
+            structureClass: 'date-node-single-struct',
+            stylingClass: 'date-node-single-styling'
+        },
+        userAvailability: {
+            structureClass: 'user-date-node-struct',
+            stylingClass: 'user-date-node-styling'
+        },
+        dateNodes: {
+            structureClass: 'date-nodes-struct',
+            stylingClass: 'date-nodes-styling'
+        },
+        timeSelect: {
+            structureClass: 'timeSelect-struct',
+            stylingClass: 'timeSelect-styling'
+        },
+        eventForm: {
+            structureClass: 'form-event-struct',
+            stylingClass: 'form-event-styling'
+        },
+        fieldWrapper: {
+            structureClass: 'field-wrapper-struct',
+            stylingClass: 'field-wrapper-styling'
+        },
+        userNode: {
+            structureClass: 'form-user-node-struct',
+            stylingClass: 'form-user-node-styling'
+        },
+        userNodeHeader: {
+            structureClass: 'form-user-node-header-struct',
+            stylingClass: 'form-user-node-header-styling'
+        },
+        addWidget: {
+            structureClass: 'add-widget-struct',
+            stylingClass: 'add-widget-styling'
+        },
+        removeWidget: {
+            structureClass: 'remove-widget-struct',
+            stylingClass: 'remove-widget-styling'
+        },
+        acceptWidget: {
+            structureClass: 'accept-widget-struct',
+            stylingClass: 'accept-widget-styling'
+        },
+        uiUserNodeInfo: {
+            structureClass: 'ui-user-node-info-struct',
+            stylingClass: 'ui-user-node-info-styling'
+        },
+        uiUserNode: {
+            structureClass: 'ui-user-node-struct',
+            stylingClass: 'ui-user-node-styling'
+        },
+        uiUserNodeHeader: {
+            structureClass: 'ui-user-node-header-struct',
+            stylingClass: 'ui-user-node-header-styling'
+        },
+        uiUserNodeBody: {
+            structureClass: 'ui-user-node-body-struct',
+            stylingClass: 'ui-user-node-body-styling'
+        },
+        addUserContainer: {
+            structureClass: 'add-user-container-struct',
+            stylingClass: 'add-user-container-styling'
+        },
+        addUserWidget: {
+            structureClass: 'add-user-widget-struct',
+            stylingClass: 'add-user-widget-styling'
+        },
+        modalForm: {
+            structureClass: 'modal-form-struct',
+            stylingClass: 'modal-form-styling'
+        },
+        modalOverlay: {
+            structureClass: 'modal-overlay-struct',
+            stylingClass: 'modal-overlay-styling'
+        },
+        repeaterControl: {
+            structureClass: 'form-repeater-ctrl-struct',
+            stylingClass: 'form-repeater-ctrl-styling'
+        },
+        logoArea: {
+            structureClass: 'logo-area-struct',
+            stylingClass: 'logo-area-styling'
+        },
+        logoAreaCompany: {
+            structureClass: 'logo-areaCompany-struct',
+            stylingClass: 'logo-areaCompany-styling'
+        },
+        errMsg: {
+            structureClass: 'errMsg-struct',
+            stylingClass: 'errMsg-styling'
+        }
     }
 };
 
@@ -64,28 +328,6 @@ window.adri = (function(){
 	    this.uiID = constants.interview.ui;
 
 	}
-
-	function APITimeInstance(timeslot) {
-	    this.interviewID = timeslot.interviewID;
-	    this.userID = timeslot.userID;
-	    this.status = timeslot.status;
-	    var inst = timeslot.schedule.startTime;
-	    inst.hour = +inst.hour;
-
-	    if (inst.period.toLowerCase() == 'pm' && inst.hour != 12) {
-	        inst.hour += 12;
-	    }
-	    else if (inst.period.toLowerCase() == 'am' && inst.hour == 12) {
-	        inst.hour = '00';
-	    }
-
-        var ts = timeslot.date + ' ' + inst.hour + ':' + inst.minutes + ':00';
-
-	    this.timeSlot = ts;
-	    this.clientID = constants.interview.client;
-	    this.uiID = constants.interview.ui;
-
-	}
 	
 	function timePeriod(h,m,p) {
 	    this.hour = h || '1';
@@ -104,11 +346,6 @@ window.adri = (function(){
 	    this.schedule = new ADRIBlock();
 	}
 
-	function BlockDate(d) {
-	    this.date = d || '';
-	    this.schedule = new ADRIBlock();
-	}
-
 	function DDOption(value, text){
 		text = text || value;
 		return '<option value="' + value + '">' + text + '</option>';
@@ -119,11 +356,109 @@ window.adri = (function(){
 		return '<option selected="selected" value="' + value + '">' + text + '</option>';
 	}
 	
+	function setClass(e) {
+	    if (!constants.elements[e]) {
+	        constants.elements[e] = {
+	            structureClass: '',
+                stylingClass:''
+	        };
+	        console.log('Class ' + e + ' is not defined.');
+	    }
+		return constants.elements[e].structureClass + ' ' + constants.elements[e].stylingClass;
+	}
+
 	var adri = {
 	    data:{},
 	    error:{
 	        noParams:function(){
-	            $('#adri-ras-content').html('Sorry, but we couldn\'t find your information. Please try clicking your invitation link again.');
+	            $('#' + constants.elements.contentArea.id).html('Sorry, but we couldn\'t find your information. Please try clicking your invitation link again.');
+	        }
+	    },
+	    proxy: {
+	        searchTimer: {},
+	        dashboard: function () {
+	            adri.ui.dashboard.route.Interviewer({});
+	        },
+	        openForm: function () {
+	            var form = '<div class="formContent pBG">' +
+                                '<div class="formHeader secHTxt centered">Search for User</div>' +
+                                '<div class="' + setClass('fieldWrapper') + '">' +
+									'<span>Client:</span>' +
+									'<select id="hd-client-list"></select>' +
+								'</div>' +
+                                '<div class="' + setClass('fieldWrapper') + '">' +
+									'<span>Search: </span>' +
+									'<input id="hd-user-search" onkeyup="adri.proxy.startSearch($(this).val())"></input>' +
+								'</div>' +
+                                '<div id="hd-search-results"></div>' +
+                            '</div>';
+
+	            var $modal = $('#modal-form');
+	            $modal.html(form);
+	            adri.ui.modal.open();
+
+	            adri.proxy.getClients(function (data) {
+	                adri.proxy.setClients('hd-client-list', data);
+	            });
+
+	        },
+	        getClients: function (onComplete) {
+	            $.ajax({
+	                type: "GET",
+	                contentType: 'application/json',
+	                dataType: "json",
+	                url: constants.urls.getClientList,
+	                success: function (data) {
+	                    onComplete(data);
+	                },
+	                error: function (xhr, ajaxOptions, error) {
+	                    console.log(xhr);
+	                }
+	            });
+	        },
+	        setClients: function (id, data) {
+	            var lim = data.length;
+	            for (var i = 0; i < lim; i++){
+	                $('#' + id).append('<option value="' + data[i].CLIENT_ID + '">' + data[i].CLIENT_NAME + '</option>');
+	            }
+	        },
+	        startSearch: function (str) {
+	            clearTimeout(adri.proxy.searchTimer);
+	            adri.proxy.searchTimer = setTimeout(function () {
+	                adri.proxy.searchUsers(str, function (data) {
+	                    $('#hd-search-results').html(adri.proxy.drawSearchResults(data));
+	                });
+	            }, 600);
+	        },
+	        searchUsers: function (str, onComplete) {
+
+	            var jData = {
+	                searchString: str,
+                    clientID: $('#hd-client-list').val()
+	            };
+
+	            $.ajax({
+	                type: "POST",
+	                contentType: 'application/json',
+	                dataType: "json",
+	                url: constants.urls.searchUser,
+	                data: JSON.stringify(jData),
+	                success: function (data) {
+	                    onComplete(data.links);
+	                },
+	                error: function (xhr, ajaxOptions, error) {
+	                    console.log(xhr);
+	                }
+	            });
+	        },
+	        drawSearchResults: function (data) {
+	            var lim = data.length;
+	            if (lim > 0) {
+	                return data.join('<br/>');
+	            }
+	            else {
+	                return '<div>No results found.</div>';
+	            }
 	        }
 	    },
 	    ui: {
@@ -133,14 +468,14 @@ window.adri = (function(){
 	                var $el = $('#dynamic-content-area');
 	                var wkDate = new Date();
 	                var iCard = '<div class="spacer"></div>' +
-                                '<div id="db-scheduling" class="dashboard-scheduling">' +
+                                '<div id="' + constants.elements.schedulingArea.id + '" class="' + setClass('schedulingArea') + '">' +
                                     //'<div class="section-header centered secHTxt">Manage Users</div>' +
                                     '<div class="section-header centered secHTxt">Manage Positions</div>' +
                                     //'<div id="user-pool" class="halfWidth-container pBG"></div>' +
                                     '<div id="position-pool" class="halfWidth-container pBG"></div>' +
                                 '</div>' +
-								'<div id="modal-form" class="modal-form"></div>' +
-								'<div id="modal-bg-overlay" class="modal-overlay" onclick="adri.timeslot.removeControls();"></div>';
+								'<div id="modal-form" class="' + setClass('modalForm') + '"></div>' +
+								'<div id="modal-bg-overlay" class="' + setClass('modalOverlay') + '" onclick="adri.timeslot.removeControls();"></div>';
 	                $el.html(iCard);
 	            },
 	            open: function () {
@@ -151,58 +486,7 @@ window.adri = (function(){
 	                });
 	            }
 	        },
-            zone: function () {
-                //this is where we can outline different zone types based on config selections
-	            var zones = '<div id="main-splash" class="ui-splash"></div>' +
-                            '<div id="left-nav" class="ui-nav-pane pBG"></div>' +
-                            '<div id="dynamic-content-area" class="ui-content-slide"></div>';
-	            $('#core-content').html(zones);
-            },
-            nav: {
-                setup: function () {
-                    var nav = '';
-                    var menu = [
-                        { adr: '', txt: appconfig.alias.interview + 's', type: 'staticHeader' },
-                        { adr: 'alert(\'Please enable range filtering in the configuration settings.\');', txt: appconfig.alias.interview + 's Today', type: 'link' },
-                        { adr: 'alert(\'Please enable range filtering in the configuration settings.\');', txt: appconfig.alias.interview + 's This Week', type: 'link' },
-                        { adr: 'alert(\'Please enable range filtering in the configuration settings.\');', txt: appconfig.alias.interview + 's This Month', type: 'link' },
-                        { adr: '', txt: 'Scheduling', type: 'staticHeader' },
-                        { adr: 'adri.ui.dashboard.open();', txt: 'Dashboard', type: 'link' },
-                        { adr: 'adri.user.info.launchEditForm();', txt: 'Edit Availability', type: 'link' },
-                        { adr: '', txt: 'Pipeline', type: 'staticHeader' },
-                        { adr: 'alert(\'Please enable pipelines in the configuration settings.\');', txt: appconfig.alias.candidate + 's waiting to schedule', type: 'link' },
-                        { adr: '', txt: 'Reports', type: 'staticHeader' },
-                        { adr: 'adri.ui.nav.open(\'' + atob(constants.interview.ui) + 'reports.html?cliid=' + constants.interview.client + '\');', txt: 'My Reports', type: 'link' },
-                        { adr: '', txt: 'Search', type: 'staticHeader' },
-                        { adr: 'alert(\'Please enable search in the configuration settings.\');', txt: 'Position ID', type: 'link' },
-                        { adr: 'alert(\'Please enable search in the configuration settings.\');', txt: appconfig.alias.interviewer, type: 'link' },
-                        { adr: 'alert(\'Please enable search in the configuration settings.\');', txt: appconfig.alias.candidate, type: 'link' }
-                    ];
-
-                    var lim = menu.length;
-                    for (var i = 0; i < lim; i++){
-                        nav = nav + adri.ui.nav.template[menu[i].type](menu[i].txt,menu[i].adr);
-                    }
-                    $('#rpts-widget').attr('onclick', 'adri.ui.nav.open(\'' + atob(constants.interview.ui) + 'reports.html?cliid=' + constants.interview.client + '\');');
-                    $('#left-nav').html(nav);
-                },
-                template: {
-                    link: function (txt,adr) {
-                        return '<div class="ckablef maintxt offset-l small-pad" onclick="' + adr + '">' + txt + '</div>';
-                    },
-                    linkHeader: function (txt,adr) {
-                        return '<div class="ckablef maintxt med-pad" onclick="' + adr + '">' + txt + '</div>';
-                    },
-                    staticHeader: function (txt,adr) {
-                        return '<div class="infoTxt med-pad">' + txt + '</div>';
-                    }
-                },
-                open: function (url) {
-                    var win = window.open(url, '_blank');
-                    win.focus();
-                }
-            }, 
-	        initialize: function () {
+	        initialize:function(){
 	            adri.user.validate(adri.ui.checkUser);
 	        },
 	        checkUser: function (user) {
@@ -255,8 +539,6 @@ window.adri = (function(){
 	                    var db = adri.ui.dashboard;
 	                    db.setup();
 
-                        $('.dynamicContent').fadeIn('fast');
-
 	                    db.getPositions(function (data) {
 	                        db.setPositionFilters(data);
 	                    });
@@ -276,7 +558,6 @@ window.adri = (function(){
 	                'Interviewer':function(user){
 	                    var db = adri.ui.dashboard;
 	                    db.setup();
-                        $('.dynamicContent').fadeIn('fast');
 
 	                    db.getPositions(function (data) {
 	                        db.setPositionFilters(data);
@@ -295,47 +576,16 @@ window.adri = (function(){
 					
 	                }
 	            },
-	            deleteUser: function (id, interviewID) {
-	                var db = adri.ui.dashboard;
-
-	                $('#loader-' + id).html('<div class="centered vCenter">Removing...</div>');
-	                $('#loader-' + id).stop();
-	                $('#loader-' + id).fadeIn(50);
-
-	                var jsData = {
-	                    id: id,
-	                    clientID: constants.interview.client,
-	                    userID: constants.interview.user,
-	                    uiID: constants.interview.ui,
-	                    interviewID: btoa(interviewID)
-	                };
-	            
-	                $.ajax({
-	                    type: "POST",
-	                    contentType: 'application/json',
-	                    dataType: "json",
-	                    url: constants.urls.deleteUser,
-	                    data: JSON.stringify(jsData),
-	                    success: function (data) {
-	                        db.getUnscheduledInterviews(function (data) {
-	                            db.drawUnscheduledInterviews(data);
-	                        });
-	                    },
-	                    error:function(xhr, ajaxOptions, error){
-	                        console.log(xhr);
-	                    }
-	                });
-	            },
 	            setup: function () {
 	                $('#page-title').html('Scheduling Dashboard');
 	                var $el = $('#dynamic-content-area');
 	                var wkDate = new Date();
-	                var dash = '<div id="db-weekly-view" class="dashboard-date-browser">' +
+	                var iCard = '<div id="' + constants.elements.weeklyView.id + '" class="' + setClass('weeklyView') + '">' +
                                     adri.util.controls.calendar.drawWeeklyView(wkDate) +
                                 '</div>' +
-                                '<div id="db-scheduling" class="dashboard-scheduling">' +
+                                '<div id="' + constants.elements.schedulingArea.id + '" class="' + setClass('schedulingArea') + '">' +
                                     '<div id="scheduled-interviews-container" class="halfWidth-container pBG">' +
-                                        '<div class="section-header centered secHTxt">Scheduled ' + appconfig.alias.interview + 's</div>' +
+                                        '<div class="section-header centered secHTxt">Scheduled Calls</div>' +
                                         '<div id="sch-int-ctrls" class="container-controls">' +
                                             '<div class="inline-field-ctnr">' +
                                                 '<span class="secHTxt">Show: </span>' +
@@ -345,14 +595,14 @@ window.adri = (function(){
                                             '</div>' +
                                             '<div class="inline-field-ctnr">' +
                                                 '<span class="secHTxt">For: </span>' +
-                                                '<span id="sch-selected-date">Next ' + appconfig.system.maxlookahead + ' Days</span>' +
+                                                '<span id="sch-selected-date">Next 7 Days</span>' +
                                                 '<div class="inline-widget ckablef mainTxt" onclick="adri.ui.dashboard.dateReset.scheduled();">&#xf0e2;</div>' +
                                             '</div>' +
                                         '</div>' +
                                         '<div id="scheduled-interviews"></div>' +
                                     '</div>' +
                                     '<div id="unscheduled-interviews-container" class="halfWidth-container pBG">' +
-                                        '<div class="section-header centered secHTxt">Unscheduled ' + appconfig.alias.interview + 's</div>' +
+                                        '<div class="section-header centered secHTxt">Unscheduled Calls</div>' +
                                         '<div id="unsch-int-ctrls" class="container-controls">' +
                                             '<div class="inline-field-ctnr">' +
                                                 '<span class="secHTxt">Show: </span>' +
@@ -364,9 +614,9 @@ window.adri = (function(){
                                         '<div id="unscheduled-interviews"></div>' +
                                     '</div>' +
                                 '</div>' +
-								'<div id="modal-form" class="modal-form"></div>' +
-								'<div id="modal-bg-overlay" class="modal-overlay" onclick="adri.timeslot.removeControls();"></div>';
-	                $el.html(dash);
+								'<div id="modal-form" class="' + setClass('modalForm') + '"></div>' +
+								'<div id="modal-bg-overlay" class="' + setClass('modalOverlay') + '" onclick="adri.timeslot.removeControls();"></div>';
+	                $el.html(iCard);
 	            },
 	            dateReset: {
 	                scheduled: function () {
@@ -420,7 +670,9 @@ window.adri = (function(){
 	                    dataType: "json",
 	                    url: constants.urls.getUserTimeSlots + "?uid=" + constants.interview.user + '&uiid=' + constants.interview.ui + '&cliid=' + constants.interview.client + '&pfl=' + btoa(posFilter),
 	                    success: function (data) {
-	                        onComplete(data[0]);
+	                        if(data !== null){
+	                            onComplete(data[0]);
+	                        }
 	                    },
 	                    error: function (xhr, ajaxOptions, error) {
 	                        console.log(xhr);
@@ -449,7 +701,9 @@ window.adri = (function(){
 	                    dataType: "json",
 	                    url: constants.urls.getUnscheduledInterviews + '?uid=' + constants.interview.user + '&uiid=' + constants.interview.ui + '&cliid=' + constants.interview.client + '&pfl=' + btoa(posFilter),
 	                    success: function (data) {
-	                        onComplete(data[0]);
+	                        if(data !== null){
+	                            onComplete(data[0]);
+	                        }
 	                    },
 	                    error: function (xhr, ajaxOptions, error) {
 	                        console.log(xhr);
@@ -480,7 +734,9 @@ window.adri = (function(){
 	                    dataType: "json",
 	                    url: constants.urls.getPositions + '?uid=' + constants.interview.user + '&uiid=' + constants.interview.ui + '&cliid=' + constants.interview.client,
 	                    success: function (data) {
-	                        onComplete(data[0]);
+	                        if (data !== null) {
+	                            onComplete(data[0]);
+	                        }
 	                    },
 	                    error: function (xhr, ajaxOptions, error) {
 	                        console.log(xhr);
@@ -494,8 +750,8 @@ window.adri = (function(){
 	                $sch.html('<option value="All">All</option>');
 	                $unsch.html('<option value="All">All</option>');
 	                var map = {};
-	                for (var i = 0; i < lim; i++) {
-	                    if(!map[data[i].POSITION_NAME]){
+	                for (var i = 0; i < lim; i++){
+	                    if (!map[data[i].POSITION_NAME]) {
 	                        map[data[i].POSITION_NAME] = data[i].POSITION_NAME;
 	                        $sch.append('<option value="' + data[i].POSITION_NAME + '">' + data[i].POSITION_NAME + '</option>');
 	                        $unsch.append('<option value="' + data[i].POSITION_NAME + '">' + data[i].POSITION_NAME + '</option>');
@@ -605,21 +861,13 @@ window.adri = (function(){
 	                        email = '';
 	                    }
 
-	                    dtlBar =    '<div class="interview-control-capsule">' +
-	                                    //'<div class="stdWidget ckablef" onclick="optout(\'email\')">&#xf003;</div>' +
-                                        //'<div class="stdWidget ckablef" onclick="optout(\'sms\')">&#xf10b;</div>' +
-                                        '<div class="stdWidget ckablef" onclick="adri.ui.dashboard.deleteUser(\'' + data[i]['ROW_ID'] + '\',\'' + data[i]['INTERVIEW_REFERENCE_ID'] + '\');">&#xf235;</div>' +
-                                    '</div>' +
-                                    '<div class="ckable interview-overview-capsule" onclick="adri.ui.dashboard.getInterview(\'' + data[i]['INTERVIEW_REFERENCE_ID'] + '\');">' +
-                                        '<div class="scheduled-interview-info"><span class="brightTxt">With:</span> ' + canName + '</div>' +
-	                                    '<div class="scheduled-interview-info"><span class="brightTxt">For:</span> ' + data[i]['POSITION_NAME'] + '</div>' +
-                                        '<div class="scheduled-interview-info"><span class="brightTxt">Req:</span> ' + data[i]['POSITION_ID'] + '</div>' +
-	                                    '<div class="scheduled-interview-info"><span class="brightTxt">At:</span> ' + tslot + '</div><br/>' +
-	                                    '<div class="scheduled-interview-info"><span class="brightTxt">Phone:</span> ' + phone.toPhone() + '</div>' +
-                                        '<div class="scheduled-interview-info"><span class="brightTxt">Email:</span> ' + email + '</div>' +
-                                        '<div id="loader-' + data[i]['ROW_ID'] + '" class="smallLoader pBG loadTxt"></div>' +
-	                                '</div>';
-	                    $schArea.append('<div class="interview-sch-info-node">' + dtlBar + '</div>');
+	                    dtlBar = '<div class="scheduled-interview-info"><span class="brightTxt">With:</span> ' + canName + '</div>' +
+	                                '<div class="scheduled-interview-info"><span class="brightTxt">For:</span> ' + data[i]['POSITION_NAME'] + '</div>' +
+                                    '<div class="scheduled-interview-info"><span class="brightTxt">Req:</span> ' + data[i]['POSITION_ID'] + '</div>' +
+	                                '<div class="scheduled-interview-info"><span class="brightTxt">At:</span> ' + tslot + '</div><br/>' +
+	                                '<div class="scheduled-interview-info"><span class="brightTxt">Phone:</span> ' + phone.toPhone() + '</div>' +
+                                    '<div class="scheduled-interview-info"><span class="brightTxt">Email:</span> ' + email + '</div>';
+	                    $schArea.append('<div onclick="adri.ui.dashboard.getInterview(\'' + data[i]['INTERVIEW_REFERENCE_ID'] + '\');" class="interview-sch-info-node ckable">' + dtlBar + '</div>');
 	                    
 	                }
 
@@ -634,6 +882,7 @@ window.adri = (function(){
 	                }
 
 	                $pool.append('<button onclick="adri.ui.dashboard.addPosition();" class="thinButton hlBG negTxt ckable"><span>Add Position</span></button>');
+	                //<button class="' + setClass('buttonTwo') + '" onclick="adri.ui.form.addUser(\'user-repeater-' + rid + '\',\'' + label + '\',\'' + updates + '\',\'' + field + '\')"><span>Add ' + label + '</span></button>';
 	            },
 	            getInterview:function(id){
 	                constants.interview.id = btoa(id);
@@ -665,33 +914,7 @@ window.adri = (function(){
 	                    adri.ui.dashboard.getInterviewsForDate(adri.ui.selectedDate);
 	                }
 	            }
-            },
-            slideshow: {
-                initialize: function () {
-                    adri.ui.slideshow.populate();
-                    adri.ui.slideshow.run();
-                },
-                populate: function () {
-                    var slides =    '<div class="ss-slide active-slide"><div class="vCenter slideTxt">Welcome to the ADRI Self-Scheduling System.<br/><br/>We hope you enjoy the new layout!</div></div>' +
-                                    '<div class="ss-slide"><div class="vCenter slideTxt">If you could fold a piece of paper 42 times, it would reach the moon.<br/><br/>The record number of folds is 12, so don\'t buy that space suit just yet.</div></div>' +
-                                    '<div class="ss-slide"><div class="vCenter slideTxt">If you become fully staffed, remember to contact your Workday team so they can put a hold on your leads.</div></div>';
-                    $('#main-splash').html(slides);
-                },
-                advance: function () {
-                    var $active = $('#main-splash .active-slide');
-                    var $next = $active.next();
-                    if ($next.length === 0){
-                        $next = $('#main-splash .ss-slide').first();
-                    }
-                    $next.addClass('active-slide');
-                    window.setTimeout(function () {
-                        $active.removeClass('active-slide');
-                    }, 300);
-                },
-                run: function () {
-                    setInterval(adri.ui.slideshow.advance, 8000);
-                }
-            },
+	        },
 	        modal:{
 	            open: function () {
 	                $('#modal-form').stop();
@@ -746,25 +969,26 @@ window.adri = (function(){
 	            };
 	            var $modal = $('#modal-form');
 	            var field = adri.ui.template.field;
-	            var intFields = '<div id="new-event-form" class="form-event">' +
-                                    '<div class="formHeader secHTxt">Enter ' + appconfig.alias.interview + ' Information</div>' +
-									field.input(appconfig.alias.interview + ' Title', 'interview', 'title') +                                   
-									'<div style="display:none;">' + field.input(appconfig.alias.interview + ' ID', 'interview', 'id') + '</div>' +                                       
-									//field.input(appconfig.alias.interview + ' Address', 'interview', 'address') +                             //hard-coded
-									//field.input(appconfig.alias.interview + ' City', 'interview', 'city') +                                   //hard-coded
-									//field.input(appconfig.alias.interview + ' State', 'interview', 'state') +                            //hard-coded
-									//field.input(appconfig.alias.interview + ' Zip', 'interview', 'zip') +                                //hard-coded
-									field.input('Phone/ Conference Number', 'interview', 'conferenceNumber') +          
-									field.input('Conference ID', 'interview', 'conferenceID') +                         
-									field.input('Conference Code', 'interview', 'conferenceCode') +                     
+	            var intFields = '<div id="new-event-form" class="' + setClass('eventForm') + '">' +
+                                    '<div class="formHeader secHTxt">Enter Interview Information</div>' +
+									field.input('Call Title', 'interview', 'title') +                                   //hard-coded
+									'<div style="display:none;">' + field.input('Call ID', 'interview', 'id') + '</div>' +                                       //hard-coded
+									//field.input('Call Address', 'interview', 'address') +                             //hard-coded
+									//field.input('Call City', 'interview', 'city') +                                   //hard-coded
+									//field.input('Interview State', 'interview', 'state') +                            //hard-coded
+									//field.input('Interview Zip', 'interview', 'zip') +                                //hard-coded
+									field.input('Phone/ Conference Number', 'interview', 'conferenceNumber') +          //hard-coded
+									field.input('Conference ID', 'interview', 'conferenceID') +                         //hard-coded
+									field.input('Conference Code', 'interview', 'conferenceCode') +                     //hard-coded
 									'<hr/>' +                                                                           
-									field.userRepeater(appconfig.alias.candidate, 'users', 'candidates') +
+									field.userRepeater('Candidate', 'users', 'candidates') +
 									'<hr/>' +
-									field.userRepeater(appconfig.alias.recruiter, 'users', 'recruiters') +
+									field.userRepeater('Recruiter', 'users', 'recruiters') +
 									'<hr/>' +
-									field.userRepeater(appconfig.alias.interviewer, 'users', 'interviewers') +                     
+									field.userRepeater('Hiring Manager', 'users', 'interviewers') +                     //hard-coded
 								'</div>';
 
+	            //intFields = '<div class="smallForm"><div class="smallFormFields">' + intFields + '</div></div>';
 	            intFields = intFields +
                             '<hr />' +
                             '<button class="bigButton mainBG negTxt ckable" onclick="adri.ui.form.submit(adri.ui.dashboard.refreshInterviews)">SUBMIT</button>';
@@ -819,9 +1043,9 @@ window.adri = (function(){
 	            }
 	        },
 	        debug:function(){
-	            var $Content = $('#adri-ras-content');
-	            var b1 = '<button type="button" onclick="adri.interview.get()">Get ' + appconfig.alias.interview + ' Info</button>';
-	            var b2 = '<button type="button" onclick="adri.ui.time.load(\'adri-ras-content\')">Load Time Controls</button>';
+	            var $Content = $('#' + constants.elements.contentArea.id);
+	            var b1 = '<button type="button" onclick="adri.interview.get()">Get Interview Info</button>';
+	            var b2 = '<button type="button" onclick="adri.ui.time.load(\''+ constants.elements.contentArea.id + '\')">Load Time Controls</button>';
 	            var b3 = '<button type="button" onclick="adri.ui.availability.load()">Get Availability</button>';
 	            var b4 = '<button type="button" onclick="adri.ui.form.newEvent()">Create Event</button>';
 	            var markup = 	'<div style="text-align:center;">'+
@@ -836,14 +1060,7 @@ window.adri = (function(){
 	            adri.data[id][field] = value;
 	        },
 	        time:{
-	            load: function (elmt) {
-	                adri.ui.form.data = {
-	                    userID: constants.interview.user,
-	                    interviewID: constants.interview.id,
-	                    clientID: constants.interview.client,
-	                    uiID: constants.interview.ui,
-	                    availability: []
-	                };
+	            load:function(elmt){
 	                var today = new Date();
 	                var cctr = '<div id="adri-ras-calendar-control" style="height:90%;width:90%;margin:0 auto;"></div>'; //maybe add to css
 	                $('#' + elmt).html(cctr);
@@ -856,11 +1073,6 @@ window.adri = (function(){
 	            dateNode:{
 	                add:function(date, element){
 	                    var dtNode = adri.ui.template.dateNode(adri.ui.time.dateNode.count, date);
-	                    var schdate = new BlockDate(date);
-	                    schdate.userID = atob(constants.interview.user);
-	                    schdate.status = 'Proposed';
-	                    schdate.interviewID = constants.interview.id;
-	                    adri.ui.form.data.availability.push([schdate]);
 	                    $('#' + element).append(dtNode);
 	                    adri.data[adri.ui.time.dateNode.count] = new ADRITime(date,'12','00','AM','Accepted');
 	                    adri.ui.time.dateNode.count++;
@@ -893,7 +1105,7 @@ window.adri = (function(){
 	            },
 	            drawNodes:function(data){
 	                var lim = data.length;
-	                var $Content = $('#adri-ras-timeNodes');
+	                var $Content = $('#' + constants.elements.nodeArea.id);
 	                $Content.html('');
 	                var map = {};
 	                for(var i = 0; i < lim; i++){
@@ -947,7 +1159,7 @@ window.adri = (function(){
 	                    return markup;
 	                },
 	                toggler: function (label, icon, updates, field, value) {
-	                    var markup = '<div class="field-wrapper">' +
+	                    var markup = '<div class="' + setClass('fieldWrapper') + '">' +
 											'<span class="secHTxt">' + label + '</span>' +
 											'<div class="field-toggler ckable" data-state="off" data-value="' + value + '" onclick="adri.ui.form.setToggler($(this)); adri.ui.form.setData(\'' + updates + '\',\'' + field + '\',$(this).attr(\'data-value\'));"><div>' + icon + '</div></div>' +
 										'</div>';
@@ -970,32 +1182,21 @@ window.adri = (function(){
 
 	                    adri.ui.form.setData(updates, field, choices[0]);
 
-	                    var markup = '<div class="field-wrapper">' +
+	                    var markup = '<div class="' + setClass('fieldWrapper') + '">' +
 											'<span>' + label + '</span>' +
 											'<select onchange="adri.ui.form.setData(\'' + updates + '\',\'' + field + '\',$(this).val());">' + opts + '</select>' +
 										'</div>';
 	                    return markup;
 	                },
-	                input: function (label, updates, field, value) {
-	                    value = value || '';
-	                    var markup = 	'<div class="field-wrapper">' +
+	                input:function(label, updates, field){
+	                    var markup = 	'<div class="' + setClass('fieldWrapper') + '">' +
 											'<span>' + label + '</span>' +
-											'<input id="field-' + field + '" onchange="adri.ui.form.setData(\'' + updates + '\',\'' + field + '\',$(this).val());">' + value + '</input>' +
-										'</div>';
-	                    return markup;
-	                },
-	                number: function (label, updates, field, step, value, min) {
-	                    min = min || 0;
-	                    value = value || '';
-	                    step = step || '1';
-	                    var markup = '<div class="field-wrapper">' +
-											'<span>' + label + '</span>' +
-											'<input type="number" min="' + min + '" id="field-' + field + '" step="' + step + '" value="' + value + '" onchange="adri.util.checkNumValue($(this),' + min + ',' + step + ');adri.ui.form.setData(\'' + updates + '\',\'' + field + '\',$(this).val());"></input>' +
+											'<input id="field-' + field + '" onchange="adri.ui.form.setData(\'' + updates + '\',\'' + field + '\',$(this).val());"></input>' +
 										'</div>';
 	                    return markup;
 	                },
 	                userInput:function(label, role, index, field){
-	                    var markup = 	'<div class="field-wrapper">' + 
+	                    var markup = 	'<div class="' + setClass('fieldWrapper') + '">' + 
 											'<span>' + label + '</span>' +
 											'<input onchange="adri.ui.form.setUserData(\'' + role + '\',\'' + index + '\',\'' + field + '\',$(this).val());"></input>' +
 										'</div>';
@@ -1010,7 +1211,7 @@ window.adri = (function(){
 	                    var nodes = $('.form-user-node-struct').length;
 	                    adri.ui.form.data.users[fld][nodes] = {};
 	                    var field = adri.ui.template.field;
-	                    var markup = '<div id="user-' + nodes + '" class="form-user-node">' +
+	                    var markup = '<div id="user-' + nodes + '" class="' + setClass('userNode') + '">' +
                             '<div id="user-' + nodes + '" class="formHeader secHTxt">Enter ' + role + ' Information</div>' +
                                 field.userInput(role + ' ID', fld, nodes, 'id') +
                                 field.userInput(role + ' First Name', fld, nodes, 'firstName') +
@@ -1070,7 +1271,7 @@ window.adri = (function(){
 	                data['TIME_SLOT'] = data['TIME_SLOT'] || '';
 					
 	                var nodeID = data['TIME_SLOT'].split(/[^0-9]/).join('-');
-	                var markup = 	'<div id="availability-node-' + nodeID + '" class="date-node">' +
+	                var markup = 	'<div id="availability-node-' + nodeID + '" class="' + setClass('dateNode') + '">' +
 										adri.ui.template.date(data['TIME_SLOT'].split('T')[0]) +
 										'<div>' + data['TIME_SLOT'].split('T')[1].split('Z')[0] + '</div>' +
 										'<div>' + data.users.join('\<br\/\>') + '</div>' +
@@ -1080,10 +1281,10 @@ window.adri = (function(){
 	            },
 	            availabilityNodeSingle:function(data){
 	                var nodeID = data['TIME_SLOT'].split(/[^0-9]/).join('-');
-	                var markup = 	'<div id="availability-node-' + nodeID + '" class="date-node-single">' +
+	                var markup = 	'<div id="availability-node-' + nodeID + '" class="' + setClass('dateNodeSingle') + '">' +
 										adri.ui.template.date(data['TIME_SLOT'].split('T')[0]) +
 										'<div>' + data['TIME_SLOT'].split('T')[1].split('Z')[0] + '</div>' +
-										'<div class="remove-widget" onclick="adri.timeslot.deleteSlot(\'' + data['TSID'] + '\');">&#xf05c;</div>' +
+										'<div class="' + setClass('removeWidget') + '" onclick="adri.timeslot.deleteSlot(\'' + data['TSID'] + '\');">&#xf05c;</div>' +
 									'</div>';
 	                return markup;
 	            },
@@ -1108,7 +1309,7 @@ window.adri = (function(){
 	                }
 
 	                var uid = atob(constants.interview.user);
-	                var delUser = '<div class="remove-widget" onclick="adri.interview.deleteUser(\'' + data['ROW_ID'] + '\');">&#xf05c;</div>';
+	                var delUser = '<div class="' + setClass('removeWidget') + '" onclick="adri.interview.deleteUser(\'' + data['ROW_ID'] + '\');">&#xf05c;</div>';
 	                if (uid === data.USER_ID) {
 	                    delUser = '';
 	                }
@@ -1120,41 +1321,39 @@ window.adri = (function(){
 	                    role = '';
 	                }
 	                
-	                role = role.split('Interviewer').join(appconfig.alias.interviewer); //hard-coded
-	                role = role.split('Candidate').join(appconfig.alias.candidate);
-	                role = role.split('Recruiter').join(appconfig.alias.recruiter);
+	                role = role.split('Interviewer').join('Hiring Manager'); //hard-coded
 
-	                var markup = 	'<div id="user-node-' + nodeID + '" class="ui-user-node">' +
+	                var markup = 	'<div id="user-node-' + nodeID + '" class="' + setClass('uiUserNode') + '">' +
 										delUser +
-                                        '<div class="ui-user-node-info">' +
-                                            '<div class="ui-user-node-header">' + fullName + '</div>' +
+                                        '<div class="' + setClass('uiUserNodeInfo') + '">' +
+                                            '<div class="' + setClass('uiUserNodeHeader') + '">' + fullName + '</div>' +
                                             '<hr />' +
-                                            '<div class="ui-user-node-body">' + role + '</div>' +
-                                            '<div class="ui-user-node-body">' + data['USER_PHONE'] + '</div>' +
-                                            '<div class="ui-user-node-body">' + data['USER_EMAIL'] + '</div>' +
-											'<div id="user-availability-' + nodeID + '" class="user-date-node"></div>' +
-											'<div class="add-widget" onclick="adri.timeslot.addControls(\'modal-form\',\'' + data['USER_ID'] + '\',\'' + fullName + '\',\'' + data['USER_ROLE'] + '\');">&#xf271;</div>' +
-                                            '<div class="add-widget" onclick="adri.util.emailUser(\'' + data['USER_ID'] + '\');">&#xf003;</div>' +
-                                            '<div class="add-widget" onclick="adri.util.smsUser(\'' + data['USER_ID'] + '\');">&#xf10b;</div>' +
+                                            '<div class="' + setClass('uiUserNodeBody') + '">' + role + '</div>' +
+                                            '<div class="' + setClass('uiUserNodeBody') + '">' + data['USER_PHONE'] + '</div>' +
+                                            '<div class="' + setClass('uiUserNodeBody') + '">' + data['USER_EMAIL'] + '</div>' +
+											'<div id="user-availability-' + nodeID + '" class="' + setClass('userAvailability') + '"></div>' +
+											'<div class="' + setClass('addWidget') + '" onclick="adri.timeslot.addControls(\'modal-form\',\'' + data['USER_ID'] + '\',\'' + fullName + '\',\'' + data['USER_ROLE'] + '\');">&#xf271;</div>' +
+                                            '<div class="' + setClass('addWidget') + '" onclick="adri.util.emailUser(\'' + data['USER_ID'] + '\');">&#xf003;</div>' +
+                                            '<div class="' + setClass('addWidget') + '" onclick="adri.util.smsUser(\'' + data['USER_ID'] + '\');">&#xf10b;</div>' +
                                         '</div>' +
 									'</div>';
 	                return markup;
 	            },
 	            addUserNode:function(){
-	                return '<div onclick="adri.interview.addUserForm();" class="add-user-container"><div class="add-user-widget">&#xf234;</div></div>';
+	                return '<div onclick="adri.interview.addUserForm();" class="' + setClass('addUserContainer') + '"><div class="' + setClass('addUserWidget') + '">&#xf234;</div></div>';
 	            },
-	            dateNode: function (nodeID, date) {
-	                var field = adri.ui.template.field;
-	                var index = $('.ti-schedule-node').length;
-                    var startSelector = field.timeNodes('startTime', index);
-                    var markup = '<div id="datetime-node-' + nodeID + '" class="ti-schedule-node pBG">' +
+	            dateNode:function(nodeID, date){
+	                var selectors = adri.util.time.propagate();
+	                var markup = 	'<div id="datetime-node-' +  nodeID + '" class="' + setClass('dateNode') + '">' +
 										adri.ui.template.date(date) +
-										field.wrap('Start Time', startSelector) + '<br />' +
+										adri.ui.template.timeSelect(nodeID, selectors.hours, 'hour') +
+										adri.ui.template.timeSelect(nodeID, selectors.minutes, 'minute') +
+										adri.ui.template.timeSelect(nodeID, selectors.period, 'period') +
 									'</div>';
 	                return markup;
 	            },
 	            timeSelect:function(id, opts, field){
-	                return '<select id="' + id + '" class="time-select" onchange="adri.ui.setData(\'' + id + '\',\'' + field + '\',$(this).val())">' + opts + '</select>';
+	                return '<select id="' + id + '" class="' + setClass('timeSelect') + '" onchange="adri.ui.setData(\'' + id + '\',\'' + field + '\',$(this).val())">' + opts + '</select>';
 	            },
 	            date:function(date){
 	                var da = date.split('-');
@@ -1242,19 +1441,19 @@ window.adri = (function(){
 					
 	            },
 	            newEvent:function(){
-	                var $content = $('#adri-ras-content');
+	                var $content = $('#' + constants.elements.contentArea.id);
 	                var field = adri.ui.template.field;
 	                var interview = adri.ui.form.data.interview;
 	                var position = adri.ui.form.data.positions;
 	                var users = adri.ui.form.data.users;
-                    var form = '<div id="new-event-form" class="form-event">' +
-                                    '<div class="formHeader secHTxt">Enter ' + appconfig.alias.interview + ' Information</div>' +        //hard-coded
-									field.input(appconfig.alias.interview + ' Title', 'interview', 'title') +                       //hard-coded
-									'<div style="display:none;">' + field.input(appconfig.alias.interview + ' ID', 'interview', 'id') + '</div>' +
-									//field.input(appconfig.alias.interview + ' Address', 'interview', 'address') +
-									//field.input(appconfig.alias.interview + ' City', 'interview', 'city') +
-									//field.input(appconfig.alias.interview + ' State', 'interview', 'state') +
-									//field.input(appconfig.alias.interview + ' Zip', 'interview', 'zip') +
+                    var form = '<div id="new-event-form" class="' + setClass('eventForm') + '">' +
+                                    '<div class="formHeader secHTxt">Enter Call Information</div>' +        //hard-coded
+									field.input('Call Title', 'interview', 'title') +                       //hard-coded
+									'<div style="display:none;">' + field.input('Call ID', 'interview', 'id') + '</div>' +
+									//field.input('Interview Address', 'interview', 'address') +
+									//field.input('Interview City', 'interview', 'city') +
+									//field.input('Interview State', 'interview', 'state') +
+									//field.input('Interview Zip', 'interview', 'zip') +
 									field.input('Phone/ Conference Number', 'interview', 'conferenceNumber') +   //hard-coded
 									field.input('Conference ID', 'interview', 'conferenceID') +           //hard-coded
 									field.input('Conference Code', 'interview', 'conferenceCode') +       //hard-coded
@@ -1262,11 +1461,11 @@ window.adri = (function(){
 									field.input('Position ID', 'positions', 'id') +
 									field.input('Position Name', 'positions', 'name') +
 									'<hr/>'+
-									field.userRepeater(appconfig.alias.candidate,'users', 'candidates') +
+									field.userRepeater('Candidate','users', 'candidates') +
 									'<hr/>'+
-									field.userRepeater(appconfig.alias.recruiter,'users', 'recruiters') +
+									field.userRepeater('Recruiter','users', 'recruiters') +
 									'<hr/>'+
-									field.userRepeater(appconfig.alias.interviewer, 'users', 'interviewers') +      //hard-coded
+									field.userRepeater('Hiring Manager', 'users', 'interviewers') +      //hard-coded
 								'</div>' +
 								'<div style="width:100%;text-align:center;"><button type="button" onclick="adri.ui.form.submit()">Create Event!</button></div>';
                     $content.html(form);
@@ -1338,7 +1537,7 @@ window.adri = (function(){
 	            });
             },
 	        loadToUI: function (data) {
-	            $('#page-title').html(appconfig.alias.interview + ' Details');
+	            $('#page-title').html('Call Details');  //hard-coded
 	            var $el = $('#dynamic-content-area');
 	            var interview = data;
 
@@ -1354,19 +1553,19 @@ window.adri = (function(){
                     ['Conference ID', 'INTERVIEW_CONFERENCE_ID']
 	            ];
                 
-	            var iCard = '<div id="interview-info-container" class="int-info-container">' +
+	            var iCard = '<div id="interview-info-container" class="' + setClass('interviewInfoContainer') + '">' +
                                 '<div id="dtl-' + interview['INTERVIEW_REFERENCE_ID'] + '" class="interviewCard">' +
                                     '<div id="dtl-txt-' + interview['INTERVIEW_REFERENCE_ID'] + '" class="interviewCardContents pBG">' +
-                                        '<div id="interview-info-header" class="formHeader secHTxt">' + appconfig.alias.interview + ' for ' + interview['POSITION_NAME'] + '</div>' +  //hard-coded
+                                        '<div id="interview-info-header" class="formHeader secHTxt">Call for ' + interview['POSITION_NAME'] + '</div>' +  //hard-coded
                                     '</div>' +
                                 '</div>' +
                             '</div>' +
                             '<div class="interviewNodeArea pBG">' +
-                                '<div class="formHeader secHTxt">Users Associated with ' + appconfig.alias.interview + '</div>' +    //hard-coded
-                                '<div id="adri-ras-timeNodes"></div>' +
+                                '<div class="formHeader secHTxt">Users Associated with Call</div>' +    //hard-coded
+                                '<div id="' + constants.elements.nodeArea.id + '"></div>' +
                             '</div>' +
-                            '<div id="modal-form" class="modal-form"></div>' +
-                            '<div id="modal-bg-overlay" class="modal-overlay" onclick="adri.timeslot.removeControls();"></div>';
+                            '<div id="modal-form" class="' + setClass('modalForm') + '"></div>' +
+                            '<div id="modal-bg-overlay" class="' + setClass('modalOverlay') + '" onclick="adri.timeslot.removeControls();"></div>';
 
 	            $el.html(iCard);
 	            var tMarkup = '';
@@ -1381,8 +1580,6 @@ window.adri = (function(){
                         '</div>';
 	                $('#dtl-txt-' + interview['INTERVIEW_REFERENCE_ID']).append(tMarkup);
                 }
-
-                $('.dynamicContent').fadeIn('fast');
 	        },
 	        getUsers:function(onComplete){
 	            var svc = constants.urls.getUsers + '?iref=' + constants.interview.id + '&uid=' + constants.interview.user + '&uiid=' + constants.interview.ui + '&cliid=' + constants.interview.client;
@@ -1401,7 +1598,7 @@ window.adri = (function(){
 	        },
 	        addUserNodes: function (data) {
 	            var lim = data.length;
-	            var $Content = $('#adri-ras-timeNodes');
+	            var $Content = $('#' + constants.elements.nodeArea.id);
 	            $Content.html('');
 	            var map = {};
 					
@@ -1420,9 +1617,9 @@ window.adri = (function(){
 	            adri.ui.form.resetData();
 	            var $modal = $('#modal-form');
 	            var field = adri.ui.template.field;
-	            var userFields =    field.userRepeater(appconfig.alias.candidate, 'users', 'candidates') +
-                                    field.userRepeater(appconfig.alias.recruiter, 'users', 'recruiters') +
-                                    field.userRepeater(appconfig.alias.interviewer, 'users', 'interviewers') +    //hard-coded
+	            var userFields =    field.userRepeater('Candidate', 'users', 'candidates') +
+                                    field.userRepeater('Recruiter', 'users', 'recruiters') +
+                                    field.userRepeater('Hiring Manager', 'users', 'interviewers') +    //hard-coded
                                   '<hr \>' +
                                   '<button class="bigButton mainBG negTxt ckable" onclick="adri.interview.submitUsers()">SUBMIT</button>';
 	            $modal.html(userFields);
@@ -1462,6 +1659,8 @@ window.adri = (function(){
                     interviewID: constants.interview.id
 	            };
 	            
+	            console.log(JSON.stringify(jsData));
+
 	            $.ajax({
 	                type: "POST",
 	                contentType: 'application/json',
@@ -1469,12 +1668,14 @@ window.adri = (function(){
 	                url: constants.urls.deleteUser,
 	                data: JSON.stringify(jsData),
 	                success: function(data){
-						adri.interview.getUsers(function(data){
+						
+	                    adri.interview.getUsers(function(data){
 	                        adri.interview.addUserNodes(data);
 	                        adri.ui.availability.get(function(data){
 	                            adri.ui.availability.drawUserTimes(data);
 	                        });
 	                    });
+						
 	                },
 	                error:function(xhr, ajaxOptions, error){
 	                    console.log(xhr);
@@ -1485,7 +1686,7 @@ window.adri = (function(){
 	    timeslot:{
 	        wrap:function(){
 	            var jsData = {
-	                data: [],
+                    data:[],
 	                info: {
 	                    uiID: constants.interview.ui,
 	                    userID: constants.interview.user,
@@ -1495,18 +1696,16 @@ window.adri = (function(){
 	            var index = 0;
 	            var timeslot;
 				
-	            var lim = adri.ui.form.data.availability.length;
-
-	            for (var i = 0; i < lim; i++){
-	                timeslot = adri.ui.form.data.availability[i][0];
-	                jsData.data[index] = new APITimeInstance(timeslot);
+	            for(var ts in adri.data){
+	                timeslot = adri.data[ts];
+	                jsData.data[index] = new APITimeSlot(timeslot);
 	                index++;
 	            }
-
+				
 	            return jsData;
 	        },
 	        add: function (jsData) {
-	            console.log(JSON.stringify(jsData));
+	            console.log(jsData);
 	            $.ajax({
 	                type: "POST",
 	                contentType: 'application/json',
@@ -1616,8 +1815,8 @@ window.adri = (function(){
 	                                field.input('Email Address', 'info', 'email') +
                                     field.input('Phone Number', 'info', 'phone') +
 	                                field.input('Location', 'info', 'location') +
-                                    field.number('Default ' + appconfig.alias.interview + ' Length (Minutes)', 'info', 'defaultInterviewMinutes', 5, 20, 10) +           //hard-coded
-                                    field.number(appconfig.alias.interviewer + ' Rank', 'info', 'ranking', 1, 1, 0) +                                     //hard-coded
+                                    field.input('Default Call Length (Minutes)', 'info', 'defaultInterviewMinutes') +           //hard-coded
+                                    field.input('Hiring Manager Rank', 'info', 'ranking') +                                     //hard-coded
                                     '<div class="formHeader secHTxt centered">Persistent Availability</div>' +
                                     '<div id="block-schedule-area" class="block-container">' +
                                         '<div class="block-repeater pBG">' +
@@ -1716,13 +1915,6 @@ window.adri = (function(){
 	                    adri.ui.form.data.info[flds[i][0]] = uInfo[flds[i][1]];
 	                }
 
-	                var dlm = adri.ui.form.data.info.defaultInterviewMinutes;
-
-	                if(dlm === '' || dlm === null){
-	                    adri.ui.form.data.info.defaultInterviewMinutes = 20;
-	                    $('#field-defaultInterviewMinutes').val(20);
-	                }
-
 	                function timeConvert(ts) {
 	                    var tps = ts.split('\:');
 	                    if (tps[0] == '12') {
@@ -1782,8 +1974,7 @@ window.adri = (function(){
 	                }
 	            },
 	            update: function (userID, onComplete) {
-	                var jData = adri.user.info.setJson();
-
+                    var jData = adri.user.info.setJson();
 	                $.ajax({
 	                    type: "POST",
 	                    contentType: 'application/json',
@@ -1809,18 +2000,6 @@ window.adri = (function(){
 	        }
 	    },
 	    util: {
-	        checkNumValue: function ($el, min, step) {
-	            var vl = $el.val();
-	            
-	            step = step || 1;
-	            if(step > 1){
-	                vl = step * Math.round(vl / step);
-	                $el.val(vl);
-	            }
-
-	            $el.val(Math.max(min, vl));
-	            
-	        },
 	        emailUser: function (userID) {
 	            var data = {
 	                interviewID: constants.interview.id,
@@ -1878,12 +2057,9 @@ window.adri = (function(){
 						pInfo.push('');
 						pObj[pInfo[0]] = pInfo[1];
 					}
-
-                    var ui = location.href.substring(0, location.href.lastIndexOf("/") + 1);
-					ui = btoa(ui);
 					constants.interview.id = pObj.iref;
 					constants.interview.user = pObj.uid;
-					constants.interview.ui = ui;
+					constants.interview.ui = pObj.uiid;
 					constants.interview.client = pObj.cliid;
 				}
 			},
@@ -1923,7 +2099,7 @@ window.adri = (function(){
 			},
 			table:{
 				headerCell:function(data){
-					return '<div class="ui-header-cell">' + data + '</div>';
+					return '<div class="' + setClass('uiHeaderCell') + '">' + data + '</div>';
 				},
 				headerRow:function(data){
 					var lim = data.length;
@@ -1931,14 +2107,13 @@ window.adri = (function(){
 					for(var i = 0; i < lim; i++){
 						cells = cells + adri.util.table.headerCell(data[i]);
 					}
-					return '<div class="ui-header-row">' + cells + '</div>';
+					return '<div class="' + setClass('uiHeaderRow') + '">' + cells + '</div>';
 				},
 				dataCell:function(data){
-					return '<div class="ui-cell">' + data + '</div>';
+					return '<div class="' + setClass('uiCell') + '">' + data + '</div>';
 				},
-				indicatorCell: function (data) {
-                    //not currently used
-					return '<div class="ui-cell"><div class="indicator-cell"></div></div>';
+				indicatorCell:function(data){
+					return '<div class="' + setClass('uiCell') + '"><div class="' + setClass('indicator' + data) + '"></div></div>';
 				},
 				dataRow:function(data, fields, id){
 					var flds = fields.length;
@@ -1951,7 +2126,7 @@ window.adri = (function(){
 							cells = cells + adri.util.table.indicatorCell(data[fields[i][0]]);
 						}
 					}
-					return '<div class="ui-row" onclick="adri.ui.dashboard.getInterview(\'' + id + '\')">' + cells + '</div>';
+					return '<div class="' + setClass('uiRow') + '" onclick="adri.ui.dashboard.getInterview(\'' + id + '\')">' + cells + '</div>';
 				},
 				dataRows:function(data,fields){
 					var rows = '';
@@ -1961,7 +2136,7 @@ window.adri = (function(){
 					return rows;
 				},
 				body:function(rows){
-					return '<div class="spacer"></div><div class="ui-table">' + rows + '</div><div class="spacer"></div>';
+					return '<div class="spacer"></div><div class="' + setClass('uiTable') + '">' + rows + '</div><div class="spacer"></div>';
 				}
 			},
 			date:{
@@ -2132,32 +2307,32 @@ window.adri = (function(){
 				calendar:{
 					template:{
 						body:function(rows){
-							return '<div class="cal-body">' + rows + '</div>';
+							return '<div class="' + setClass('calendar') + '">' + rows + '</div>';
 						},
 						wvbody: function (rows) {
 						    return '<div class="wvCalBody">' + rows + '</div>';
 						},
 						row: function(cells){
-							return '<div class="cal-row">' + cells + '</div>';
+							return '<div class="' + setClass('row') + '">' + cells + '</div>';
 						},
 						headerRow: function(cells){
-							return '<div class="cal-header-row">' + cells + '</div>';
+							return '<div class="' + setClass('headerRow') + '">' + cells + '</div>';
 						},
 						cell: function(date){
 							var cellid = adri.util.date.fmt({ date: date, format:'MM-dd-yyyy' });
 							var sDate = adri.util.date.fmt({ date: date, format:'yyyy-MM-dd' });
-							return 	'<div id="cal-cell-' + cellid + '" class="cal-cell" onclick="adri.ui.time.dateNode.add(\'' + sDate + '\',\'ui-datenodes\')">' +
-										'<div nohighlight class="cal-cell-date">' + date.getDate() + '</div>' +
+							return 	'<div id="cal-cell-' + cellid + '" class="' + setClass('cell') + '" onclick="adri.ui.time.dateNode.add(\'' + sDate + '\',\'ui-datenodes\')">' +
+										'<div nohighlight class="' + setClass('cellDate') + '">' + date.getDate() + '</div>' +
 									'</div>';
 						},
 						inactiveCell: function(date){
 							var cellid = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
-							return 	'<div id="cal-cell-' + cellid + '" class="cal-inactive-cell">' +
-										'<div nohighlight class="cal-cell-date">' + date.getDate() + '</div>' +
+							return 	'<div id="cal-cell-' + cellid + '" class="' + setClass('inactiveCell') + '">' +
+										'<div nohighlight class="' + setClass('cellDate') + '">' + date.getDate() + '</div>' +
 									'</div>';
 						},
 						title: function(date){
-							return '<div nohighlight class="cal-title">' + adri.util.date.fmt({ date: date, format: 'MMMM yyyy' }) + '</div>';
+							return '<div nohighlight class="' + setClass('title') + '">' + adri.util.date.fmt({ date: date, format: 'MMMM yyyy' }) + '</div>';
 						},
 						wkviewTitle: function (date) {
 						    return '<div nohighlight class="title-weekly-calendar vCenter centered">Week of ' + adri.util.date.fmt({ date: date, format: 'MMMM dd, yyyy' }) + '</div>';
@@ -2186,7 +2361,7 @@ window.adri = (function(){
 							var mthYr = adri.util.date.fmt({ date: d, format:'MMMM yyyy' });
 							var clk = 'adri.util.controls.calendar.draw(\'' + elmt + '\',\'' + d.getMonth() + '\',\'' + d.getFullYear() + '\')';
 							
-							return '<div nohighlight class="cal-button" onclick="' + clk + ';">' + dir.icon + '</div>';
+							return '<div nohighlight class="' + setClass('button') + '" onclick="' + clk + ';">' + dir.icon + '</div>';
 						},
 						controls: function(date, elmt){
 							var tmp = adri.util.controls.calendar.template;
@@ -2216,11 +2391,7 @@ window.adri = (function(){
 						var firstWeekday = minDate.getDay();
 						var firstDayDifference = 0 - firstWeekday;
 						var calDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + firstDayDifference);
-						var exNodes = $('#ui-datenodes').html();
-						if(exNodes === undefined){
-						    exNodes = '';
-						}
-
+						
 						for(var w = 0; w < 6; w++){
 							row = '';
 							for(var d = 0; d < 7; d++){
@@ -2239,9 +2410,9 @@ window.adri = (function(){
 						}
 						
 						header = tmp.headerRow(header,elmt);
-                        body = '<div class="cal-monthHeader">' + tmp.controls(minDate, elmt) + '</div><div class="cal-body">' + header + body + '</div>';
-                        body = body + '<div id="ui-datenodes" class="ti-schedule-nodes">' + exNodes + '</div>';
-                        body = body + '<div class="cal-footer-row"><button class="bigButton mainBG negTxt ckable" type="button" onclick="adri.ui.time.submit()">Add Times</button></div>';
+                        body = '<div class="' + setClass('monthHeader') + '">' + tmp.controls(minDate, elmt) + '</div><div class="' + setClass('calendar') + '">' + header + body + '</div>';
+						body = body + '<div id="ui-datenodes" class="' + setClass('dateNodes') + '"></div>';
+						body = body + '<div class="' + setClass('footerRow') + '"><button class="' + setClass('submitButton') + '" type="button" onclick="adri.ui.time.submit()">Add Times</button></div>';
 						return body;
 					},
 					draw: function(elmt, mth, yr){
@@ -2278,8 +2449,8 @@ window.adri = (function(){
 					    
 					    header = tmp.headerRow(header);
 					    body = '<div class="mobile-hscroll"><div class="wvCalBody">' + header + body + '</div></div>';
-					    body = body + '<div id="ui-datenodes" class="date-nodes"></div>';
-					    body = body + '<div class="cal-footer-row"></div>';
+					    body = body + '<div id="ui-datenodes" class="' + setClass('dateNodes') + '"></div>';
+					    body = body + '<div class="' + setClass('footerRow') + '"></div>';
 					    body = '<div class="cycle-weekly-calendar"><div class="stdWidget vCenter right ckablef" onclick="adri.util.controls.calendar.cycleWeeklyView(-1,\'' + wkDate + '\');">&#xf137;</div></div>' +
                                 '<div class="weekly-cal-title-cntr">' +tmp.wkviewTitle(wkDate) + '</div>' +
                                 '<div class="cycle-weekly-calendar"><div class="stdWidget vCenter left ckablef" onclick="adri.util.controls.calendar.cycleWeeklyView(1,\'' + wkDate + '\');">&#xf138;</div></div>' +
@@ -2297,7 +2468,7 @@ window.adri = (function(){
 					    var d = new Date(wkDate);
                         d.setDate(d.getDate() + m);
 
-                        $('#db-weekly-view').html(adri.util.controls.calendar.drawWeeklyView(d));
+					    $('#' + constants.elements.weeklyView.id).html(adri.util.controls.calendar.drawWeeklyView(d));
 					    db.getInterviews(function (data) {
 					        db.drawInterviews(data);
 					    });
@@ -2321,9 +2492,19 @@ window.adri = (function(){
 })();
 
 $(document).ready(function(){
-    adri.util.getURLParams();
-    adri.ui.zone();
-    adri.ui.nav.setup();
-    adri.ui.slideshow.initialize();
-	adri.ui.dashboard.open();
+		adri.util.getURLParams();
+		adri.proxy.dashboard();
+        //adri.ui.dashboard.open();
+		//adri.ui.debug();
+		/*
+		if(constants.interview.id != '' && constants.interview.user != ''){
+			//adri.interview.get(interviewID); //----- to display interview info
+			//adri.ui.time.load(); //----- for calendar selections
+			//adri.ui.availability.load(); //----- for viewing timeslots
+			adri.ui.initialize();
+		}
+		else{
+			adri.error.noParams();
+		}
+		*/
 });

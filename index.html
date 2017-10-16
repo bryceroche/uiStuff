@@ -3,29 +3,18 @@
 <head>
 	<script src="adri/jquery.js"></script>
 	<script src="adri/adri.ras.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" media="only screen and (max-width: 850px)" href="adri/adri.mobile.css" />
     <link rel="stylesheet" media="only screen and (min-width: 851px)" href="adri/adri.ras.css" />
-    
+    <link rel="stylesheet" href="adri/clientTheme.css" />
 	<title>ADRI Recruiting Automation Service</title>
 </head>
 <body>
-	<div id="adri-ras-content" class="content-area-struct content-area-styling">
-        <div id="interview-info-header-container" class="pageHeader">
-            <div id="interview-info-logo-container" class="companyLogo" onclick="adri.util.controls.reloadLocation()">&#xf06c</div>
-            <div id="interview-info-logoCo-container" class="clientLogo">
-                <img src="images/clientLogo.png" style="width:100%;height:100%;">
-            </div>
-            <div id="page-title" class="mainHTxt titleBox">Scheduling Dashboard</div>
-            <div class="welcomebox maintxt" id="welcome-box"></div>
-            <div id="interview-controls" class="pageControls">
-                <div class="medWidget ckablef" onclick="adri.ui.dashboard.open()">&#xf00a;</div>
-                <div class="medWidget ckablef" onclick="adri.user.info.launchEditForm();">&#xf2c3;</div>
-                <div class="medWidget ckablef" onclick="adri.ui.settings.open()">&#xf085;</div>
-                <div class="medWidget ckablef" onclick="">&#xf080;</div>
-            </div>
+	<div id="adri-ras-content" class="content-area">
+        <div class="vCenter centered">
+            <div class="formHeader mainHTxt" style="font-size:24pt;">Interested in working with TruGreen?</div>
+            <div><a class="secHTxt" style="font-size:18pt;" href="https://jobs.trugreen.com/">Click Here!</a></div>
         </div>
-        <div id="dynamic-content-area" class="dynamicContent"></div>
     </div>
 </body>
 </html> 
